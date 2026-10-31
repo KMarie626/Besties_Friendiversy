@@ -1,0 +1,91 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #8a0ee8;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+text-decoration: none;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #00adb5;
+}
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 15px;
+    border-radius: 25px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+  }
+
+  .nav-links li {
+    margin-left: 0;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 10px 5px;
+  }
+}
+
+.navbar {
+  position: relative;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  border: 3px solid #f6acd2;
+  box-shadow: 0 0 12px rgba(246, 172, 210, 0.45);
+}
+
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 18px;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 28'%3E%3Cpath d='M0 14 Q14 5 28 14 T56 14' fill='none' stroke='%2394b58c' stroke-width='2'/%3E%3Cellipse cx='9' cy='10' rx='6' ry='3' fill='%23b4cf9c' transform='rotate(-30 9 10)'/%3E%3Cellipse cx='46' cy='18' rx='6' ry='3' fill='%23b4cf9c' transform='rotate(-30 46 18)'/%3E%3Cg fill='%23f5a4ce' stroke='%23df79af' stroke-width='.7'%3E%3Ccircle cx='28' cy='7' r='6'/%3E%3Ccircle cx='35' cy='12' r='6'/%3E%3Ccircle cx='32' cy='20' r='6'/%3E%3Ccircle cx='24' cy='20' r='6'/%3E%3Ccircle cx='21' cy='12' r='6'/%3E%3C/g%3E%3Ccircle cx='28' cy='14' r='4' fill='%23ffe6a3'/%3E%3C/svg%3E");
+
+  background-repeat: repeat-x;
+  background-size: 52px 18px;
+  background-position: center;
+}
+
+.navbar::before {
+  top: -9px;
+}
+
+.navbar::after {
+  bottom: -9px;
+}

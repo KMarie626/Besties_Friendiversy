@@ -1,0 +1,190 @@
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  font-family: Georgia, "Times New Roman", serif;
+  color: #49245e;
+
+  background-color: #fff5fa;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(232, 184, 218, 0.3) 50%,
+      transparent 50%
+    ),
+    linear-gradient(
+      rgba(232, 184, 218, 0.3) 50%,
+      transparent 50%
+    );
+  background-size: 40px 40px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: clamp(30px, 6vw, 48px);
+  color: #7536a8;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.page-intro {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 35px;
+}
+
+.photo-card {
+  max-width: 450px;
+  margin: 0 auto 40px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(73, 36, 94, 0.15);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.photo-card figcaption {
+  padding-top: 15px;
+  text-align: center;
+  font-size: 20px;
+  color: #7536a8;
+}
+
+body {
+  isolation: isolate;
+}
+
+.garden-border {
+  position: fixed;
+  top: 150px;
+  bottom: 20px;
+  width: 85px;
+  z-index: -1;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.garden-left {
+  left: 5%;
+}
+
+.garden-right {
+  right: 5%;
+}
+
+/* The green stem behind the decorations */
+.garden-border::before {
+  display: none;
+}
+
+.garden-border span {
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  font-size: 30px;
+
+  background-color: #fff5fb;
+  border: 2px solid #edb8d8;
+  border-radius: 50%;
+
+  box-shadow:
+    0 4px 10px rgba(115, 54, 140, 0.15),
+    0 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.garden-border span:nth-child(odd) {
+  transform: translateX(-14px) rotate(-12deg);
+}
+
+.garden-border span:nth-child(even) {
+  transform: translateX(14px) rotate(12deg);
+}
+
+/* Smaller decorations along the edges on phones */
+@media (max-width: 700px) {
+  .garden-border {
+    width: 30px;
+  }
+
+  .garden-left {
+    left: 0;
+  }
+
+  .garden-right {
+    right: 0;
+  }
+
+  .garden-border span {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    box-shadow: none;
+  }
+
+  .garden-border::before {
+    left: 50%;
+    right: auto;
+    width: 3px;
+  }
+
+  .garden-border span:nth-child(n) {
+    transform: none;
+  }
+}
+#picture-sparkles {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#picture-sparkles span {
+  position: absolute;
+  opacity: 0;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  animation: picture-sparkle-float 7s ease-in-out infinite;
+}
+
+@keyframes picture-sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.5) rotate(0deg);
+  }
+
+  30% {
+    opacity: 0.8;
+  }
+
+  60% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(1.2) rotate(90deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #picture-sparkles span {
+    animation: none;
+    opacity: 0.3;
+  }
+}

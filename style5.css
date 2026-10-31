@@ -1,0 +1,274 @@
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  font-family: Georgia, "Times New Roman", serif;
+  color: #493365;
+
+  background: linear-gradient(
+    135deg,
+    #e4f7ff,
+    #f0e7ff,
+    #ffe6f2
+  );
+}
+
+.year-two {
+  max-width: 900px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.year-two h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  color: #7536a8;
+  margin-bottom: 15px;
+}
+
+.year-two p {
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* The container for our whole penguin */
+.penguin {
+  position: relative;
+  width: 240px;
+  height: 290px;
+  margin: 55px auto 35px;
+  isolation: isolate;
+}
+
+/* Dark, rounded body */
+.penguin-body {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  width: 180px;
+  height: 245px;
+  z-index: 2;
+
+  background: linear-gradient(135deg, #49445f, #262337);
+  border-radius: 48% 48% 43% 43%;
+  box-shadow: inset -8px -6px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Creamy face and tummy */
+.penguin-belly {
+  position: absolute;
+  top: 38px;
+  left: 15px;
+  width: 150px;
+  height: 195px;
+
+  background: #fff9f1;
+  border-radius: 46% 46% 44% 44%;
+}
+
+/* Shiny eyes */
+.penguin-eye {
+  position: absolute;
+  top: 76px;
+  width: 15px;
+  height: 23px;
+  background: #30283e;
+  border-radius: 50%;
+}
+
+.eye-left {
+  left: 48px;
+}
+
+.eye-right {
+  right: 48px;
+}
+
+.penguin-eye::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  width: 5px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Blushy cheeks */
+.penguin-cheek {
+  position: absolute;
+  top: 106px;
+  width: 29px;
+  height: 15px;
+  border-radius: 50%;
+  background: #f7afc9;
+}
+
+.cheek-left {
+  left: 25px;
+}
+
+.cheek-right {
+  right: 25px;
+}
+
+/* Little orange beak */
+.penguin-beak {
+  position: absolute;
+  top: 102px;
+  left: 76px;
+  width: 28px;
+  height: 19px;
+  background: #f4b35e;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-radius: 5px;
+}
+
+/* Pink bow tie */
+.penguin-bow {
+  position: absolute;
+  top: 145px;
+  left: 80px;
+  width: 20px;
+  height: 20px;
+  background: #d95c9b;
+  border-radius: 50%;
+  isolation: isolate;
+}
+
+.penguin-bow::before,
+.penguin-bow::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 30px;
+  height: 30px;
+  background: #f38abd;
+  z-index: -1;
+}
+
+.penguin-bow::before {
+  right: 12px;
+  border-radius: 8px 50% 50% 8px;
+}
+
+.penguin-bow::after {
+  left: 12px;
+  border-radius: 50% 8px 8px 50%;
+}
+
+/* Flippers sit behind the body */
+.flipper {
+  position: absolute;
+  top: 100px;
+  width: 42px;
+  height: 105px;
+  background: #353047;
+  border-radius: 50%;
+  transform-origin: 50% 15%;
+  z-index: 1;
+}
+
+.flipper-left {
+  left: 22px;
+  transform: rotate(25deg);
+}
+
+.flipper-wave {
+  right: 22px;
+  animation: penguin-wave 2.4s ease-in-out infinite;
+}
+
+/* Little feet */
+.penguin-foot {
+  position: absolute;
+  bottom: 15px;
+  width: 65px;
+  height: 28px;
+  background: #f4b35e;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.foot-left {
+  left: 40px;
+  transform: rotate(-12deg);
+}
+
+.foot-right {
+  right: 40px;
+  transform: rotate(12deg);
+}
+
+/* Wave, wave, then pause */
+@keyframes penguin-wave {
+  0%, 60%, 100% {
+    transform: rotate(-125deg);
+  }
+
+  15%, 45% {
+    transform: rotate(-155deg);
+  }
+
+  30% {
+    transform: rotate(-115deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flipper-wave {
+    animation: none;
+    transform: rotate(-125deg);
+  }
+}
+
+/*SNOWFALL*/
+body {
+  isolation: isolate;
+}
+
+#snowfall {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#snowfall span {
+  position: absolute;
+  top: -40px;
+
+  font-family: Georgia, serif;
+  line-height: 1;
+  opacity: 0;
+
+  text-shadow: 0 0 5px rgba(133, 166, 205, 0.4);
+  animation: snow-fall 16s linear infinite;
+}
+
+@keyframes snow-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10%, 85% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform:
+      translate(var(--drift), calc(100vh + 80px))
+      rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #snowfall {
+    display: none;
+  }
+}
